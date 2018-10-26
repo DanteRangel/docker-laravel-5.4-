@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Starts php process in background
+
 /usr/sbin/php-fpm -c /etc/php/fpm
 
-/usr/sbin/nginx
+# Starts nginx daemon
+
+nginx -g 'daemon off;'
+
