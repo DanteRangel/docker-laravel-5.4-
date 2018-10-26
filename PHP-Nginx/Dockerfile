@@ -18,7 +18,13 @@ RUN                                                                          \
     php71u-zip                                                               \
     php71u-gd                                                                \
             --enablerepo=ius && yum clean all
+USER root
+
+ENV prueba 1234
+RUN mkdir -p /var/www/html/                      
+RUN echo '<?php phpinfo();?>' > /var/www/html/index.php
 EXPOSE 80 443
+
 
 VOLUME /var/www/html /var/log/nginx /var/log/php-fpm /var/lib/php-fpm
 
@@ -26,7 +32,7 @@ COPY ./conf/nginx.conf /etc/nginx/conf.d/default.conf
 
 COPY ./bin/start.sh /start.sh
 
-RUN echo "<?php phpinfo();?>" > /var/www/html/index.php
+
 
 RUN chmod +x /start.sh
 
