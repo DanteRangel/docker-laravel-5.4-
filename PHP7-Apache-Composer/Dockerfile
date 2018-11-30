@@ -16,6 +16,7 @@ RUN yum -y install httpd                                 && \
     php71u-mbstring                                                          \
     php71u-zip                                                               \
     php71u-gd                                                                \
+    php71u-xdebug                                                            \
             --enablerepo=ius && yum clean all
 #install composer
 RUN curl -sS https://getcomposer.org/installer | php
